@@ -54,10 +54,9 @@ class _HomeScreenState extends State<HomeScreen> {
     // AuthGate swaps back to LoginScreen on its own
   }
 
-  //function used to get the data to populet the history chart
   Future<void> getHistoryData() async {
     final today = DateTime.now();
-    final from = today.subtract(const Duration(days: 6));//to get the last 7 days, including today
+    final from = today.subtract(const Duration(days: 6));
     final result = <DayData>[];
     try {
       final response = await supabase
@@ -73,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
         byDay[key] = (byDay[key] ?? 0) + (row['kcal'] as num).toDouble();
       }
 
-      for (var i = 0; i < 7; i++) { //loop through the last 7 days to get the data for the chart
+      for (var i = 0; i < 7; i++) {
         final day = from.add(Duration(days: i));
         final key = day.toIso8601String().substring(0, 10);
         result.add(DayData(date: day, kcal: byDay[key] ?? 0));
@@ -143,7 +142,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  //function that adds the scanned/entered food into the table, and also calculates the total kcal, protein, carbs and fats based on the grams entered by the user
   Future<void> addFoodEntry() async {
     final barcode = await Navigator.of(
       context,
@@ -172,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     final kcal = foodEntry.kcalPer100g * grams / 100;
 
-    //using those to not get errors in case its empty
+    //USING THOSE JUST IN CASE ITS NULL, TO AVOID ERRORS WHEN INSERTING INTO THE TABLE
     final protein = foodEntry.proteinPer100g != null
         ? foodEntry.proteinPer100g! * grams / 100
         : null;
@@ -206,7 +204,6 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  //fetches the note from the database for a specific day
   Future<void> getNote() async {
     try {
       final row = await supabase

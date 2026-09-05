@@ -4,7 +4,6 @@ import 'package:macrotracker/screens/signup_screen.dart';
 import 'package:macrotracker/services/auth_service.dart';
 import 'package:macrotracker/widgets/password_text_field.dart';
 
-//taken from the last assignament with database
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 

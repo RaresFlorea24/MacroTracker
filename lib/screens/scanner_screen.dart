@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-//documentation: https://pub.dev/packages/mobile_scanner/example
 
 class ScannerScreen extends StatefulWidget {
   const ScannerScreen({super.key});
