@@ -15,15 +15,7 @@ class ManualEntryDialog extends StatelessWidget {
     String? nameError;
     String? kcalError;
 
-    @override
-    void dispose() {
-      nameController.dispose();
-      kcalController.dispose();
-      proteinController.dispose();
-      carbsController.dispose();
-      fatController.dispose();
-    }
-
+    
     return StatefulBuilder(
       builder: (context, setDialogState) => AlertDialog(
         title: const Text('Enter food details'),

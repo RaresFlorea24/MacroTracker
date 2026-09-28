@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:macrotracker/services/auth_service.dart';
 import 'package:macrotracker/widgets/password_text_field.dart';
 
-//documentation : https://supabase.com/docs/guides/getting-started/tutorials/with-flutter?queryGroups=platform&platform=android
+//taken from the last assignament with database
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
